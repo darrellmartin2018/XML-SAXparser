@@ -23,7 +23,7 @@ import javafx.stage.FileChooser;
 
 /**
  *
- * @author dale
+ * @author dale/darrellmartin
  */
 public class SAXParserFXMLController implements Initializable {
     
@@ -42,7 +42,13 @@ public class SAXParserFXMLController implements Initializable {
         if (file != null) {
             try
             {
-                
+                Loader loader = new Loader();
+                loader.loadXML(file);
+                if(!loader.getTextBody().isEmpty()){
+                    textArea.setText("");
+                    textArea.setText(loader.getTextBody());
+                    loader.setTextBody();
+            }
                 
             } catch (Exception ex) {
                 displayExceptionAlert("Exception parsing XML file.", ex);
