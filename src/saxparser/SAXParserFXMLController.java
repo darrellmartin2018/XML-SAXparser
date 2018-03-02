@@ -44,10 +44,11 @@ public class SAXParserFXMLController implements Initializable {
             {
                 Loader loader = new Loader();
                 loader.loadXML(file);
-                if(!loader.getTextBody().isEmpty()){
+                
+                if(!loader.getText().isEmpty()){
                     textArea.setText("");
-                    textArea.setText(loader.getTextBody());
-                    loader.setTextBody();
+                    textArea.setText(loader.getText());
+                    loader.setText();
             }
                 
             } catch (Exception ex) {
